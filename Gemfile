@@ -30,4 +30,5 @@ end
 group :development, :test do
   gem 'rspec-rails'
   gem 'capybara'
+  gem 'colorize'
 end
