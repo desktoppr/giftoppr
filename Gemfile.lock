@@ -40,6 +40,7 @@ GEM
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
+    hashie (1.2.0)
     hike (1.2.1)
     i18n (0.6.1)
     journey (1.0.4)
@@ -53,6 +54,15 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.19)
     multi_json (1.5.0)
+    oauth (0.4.7)
+    omniauth (1.1.1)
+      hashie (~> 1.2)
+      rack
+    omniauth-dropbox (0.2.0)
+      omniauth-oauth (~> 1.0)
+    omniauth-oauth (1.0.1)
+      oauth
+      omniauth (~> 1.0)
     pg (0.14.1)
     polyglot (0.3.3)
     rack (1.4.4)
@@ -106,6 +116,7 @@ PLATFORMS
 DEPENDENCIES
   coffee-rails (~> 3.2.1)
   jquery-rails
+  omniauth-dropbox
   pg
   rails (= 3.2.11)
   sass-rails (~> 3.2.3)
