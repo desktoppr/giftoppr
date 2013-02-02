@@ -5,6 +5,8 @@ module Dropbox
       attr_accessor :original_filename
     end
 
+    delegate :put_file, :file_delete, :add_copy_ref, :create_copy_ref, :to => :client
+
     def initialize(token, secret)
       @token = token
       @secret = secret
