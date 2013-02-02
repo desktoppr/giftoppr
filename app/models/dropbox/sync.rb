@@ -1,8 +1,8 @@
 module Dropbox
   class Sync
-    def initialize(user)
-      @user = user
-      @account = Account.new(user.oauth_token, user.oauth_secret)
+    def initialize(user_id)
+      @user = User.find(user_id)
+      @account = Account.new(@user.oauth_token, @user.oauth_secret)
     end
 
     def sync_from_cursor
@@ -28,10 +28,7 @@ module Dropbox
           meta_data = file[1]
 
           # If metadata is blank then it is an 'remove'
-          if meta_data
-            p path
-            p meta_data
-          end
+          Dropbox::Downloader.new(@user.id, path, meta_data).download if meta_data.present?
         end
 
         files[:cursor]
