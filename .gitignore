@@ -3,3 +3,4 @@
 .rbenv-vars
 log/*
 tmp/*
+public/gifs

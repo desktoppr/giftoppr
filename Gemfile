@@ -1,20 +1,28 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.11'
+gem 'rails'
 gem 'pg'
+
+# Dropbox
 gem 'omniauth-dropbox'
 gem 'dropbox-sdk', :require => 'dropbox_sdk'
+
+# Uploading assets to S3
+gem 'fog'
+
+# Image processing
 gem 'fastimage'
 gem 'carrierwave'
 
+# Front end stuff
+gem 'jquery-rails'
+
 group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
-  gem 'uglifier', '>= 1.0.3'
+  gem 'sass-rails'
+  gem 'coffee-rails'
+  gem 'uglifier'
 end
 
 group :development, :test do
   gem 'rspec-rails'
 end
-
-gem 'jquery-rails'

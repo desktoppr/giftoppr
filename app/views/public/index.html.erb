@@ -1,1 +1,3 @@
-<%= @gifs.to_a %>
+<% @gifs.each do |gif| %>
+  <%= image_tag gif.file.url %>
+<% end %>

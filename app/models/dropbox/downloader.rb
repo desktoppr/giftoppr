@@ -19,9 +19,8 @@ module Dropbox
           # another wallpaper. We catch this exception here and do nothing (the
           # wallpaper is already on desktoppr).
           begin
-            raise 'hello'
             Gif.new(image_data).tap do |gif|
-              gif.uploader = user
+              gif.uploader = @user
               gif.save!
             end
           rescue ActiveRecord::RecordNotUnique
