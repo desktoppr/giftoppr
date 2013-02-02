@@ -8,7 +8,7 @@
 </head>
 <body>
   <header>
-    <%= link_to "Signin with Dropbox", authorize_path(:provider => :dropbox) %>
+    <%= link_to "Signin with Dropbox", auth_path(:dropbox) %>
   </header>
   <%= yield %>
 </body>
