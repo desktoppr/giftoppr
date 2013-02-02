@@ -1,3 +1,3 @@
 class User < ActiveRecord::Base
-  validates :name, :provider, :uid, :presence => true
+  validates :provider, :uid, :name, :email, :oauth_token, :oauth_secret, :presence => true
 end
