@@ -7,8 +7,16 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <h1>Giftoppr</h1>
   <header>
-    <%= link_to "Signin with Dropbox", auth_path(:dropbox) %>
+    <ul>
+      <% if user_signed_in? %>
+        <li>Welcome <%= current_user.name %></li>
+        <li><%= link_to "Logout", auth_logout_path %></li>
+      <% else %>
+        <li><%= link_to "Signin with Dropbox", auth_path(:dropbox) %></li>
+      <% end %>
+    </ul>
   </header>
   <%= yield %>
 </body>
