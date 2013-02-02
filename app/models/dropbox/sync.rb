@@ -28,7 +28,7 @@ module Dropbox
           meta_data = file[1]
 
           # If metadata is blank then it is an 'remove'
-          Dropbox::Downloader.new(@user.id, path, meta_data).download if meta_data.present?
+          Dropbox::Uploader.upload_to_site(@user.id, path) if meta_data
         end
 
         files[:cursor]
