@@ -17,6 +17,10 @@ gem 'carrierwave'
 # Front end stuff
 gem 'jquery-rails'
 
+# Production
+gem 'unicorn'
+gem 'foreman'
+
 group :assets do
   gem 'sass-rails'
   gem 'coffee-rails'
