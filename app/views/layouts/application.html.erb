@@ -7,6 +7,9 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<%= yield %>
+  <header>
+    <%= link_to "Signin with Dropbox", authorize_path(:provider => :dropbox) %>
+  </header>
+  <%= yield %>
 </body>
 </html>
