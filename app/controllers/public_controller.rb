@@ -1,5 +1,5 @@
 class PublicController < ApplicationController
   def index
-    @gifs = Gif.limit(10).order('random()')
+    @gifs = Gif.order('random()')
   end
 end

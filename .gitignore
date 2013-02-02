@@ -4,3 +4,4 @@
 log/*
 tmp/*
 public/gifs
+.DS_Store
