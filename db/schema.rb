@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130202055842) do
+ActiveRecord::Schema.define(:version => 20130202070522) do
 
   create_table "sessions", :force => true do |t|
     t.string   "session_id", :null => false
@@ -24,14 +24,15 @@ ActiveRecord::Schema.define(:version => 20130202055842) do
   add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
 
   create_table "users", :force => true do |t|
-    t.string   "provider",     :null => false
-    t.string   "uid",          :null => false
-    t.string   "name",         :null => false
-    t.string   "email",        :null => false
-    t.string   "oauth_token",  :null => false
-    t.string   "oauth_secret", :null => false
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.string   "provider",      :null => false
+    t.string   "uid",           :null => false
+    t.string   "name",          :null => false
+    t.string   "email",         :null => false
+    t.string   "oauth_token",   :null => false
+    t.string   "oauth_secret",  :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.string   "change_cursor"
   end
 
   add_index "users", ["provider", "uid"], :name => "index_users_on_provider_and_uid"
