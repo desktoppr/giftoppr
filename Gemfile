@@ -5,6 +5,7 @@ gem 'pg'
 gem 'omniauth-dropbox'
 gem 'dropbox-sdk', :require => 'dropbox_sdk'
 gem 'fastimage'
+gem 'carrierwave'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
