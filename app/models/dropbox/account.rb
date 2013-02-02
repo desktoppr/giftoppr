@@ -22,6 +22,8 @@ module Dropbox
         :unique_hash => unique_hash,
         :file => data,
         :bytes => data.size }
+    rescue DropboxError => e
+      # File has probably been deleted
     end
 
     def changed_files_from_cursor(cursor = nil, regex = nil)
