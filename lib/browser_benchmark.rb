@@ -39,7 +39,7 @@ class BenchmarkResults
 
   def to_s
     %{
-                   Low       Median    High
+                   Fastest   Median    First Load
 DOM interactive:   #{@dom_interactive_times}
 DOM ready:         #{@dom_complete_times}
 Total load:        #{@load_event_end_times}
@@ -49,7 +49,7 @@ end
 
 class Result < Array
   def to_s
-    lowest_s + median_s + highest_s
+    lowest_s + median_s + first_s
   end
 
   private
@@ -62,8 +62,8 @@ class Result < Array
     "#{median}ms".ljust(10).colorize(:blue)
   end
 
-  def highest_s
-    "#{max}ms".ljust(10).colorize(:red)
+  def first_s
+    "#{first}ms".ljust(10).colorize(:red)
   end
 
   def median(&blk)
