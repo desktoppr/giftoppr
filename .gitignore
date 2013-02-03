@@ -4,8 +4,6 @@
 log/*
 tmp/*
 public/gifs
-<<<<<<< HEAD
+public/uploads
 .DS_Store
-=======
 chromedriver.log
->>>>>>> Add a rake task to check performance.

@@ -1,6 +1,6 @@
 <% @gifs.each do |gif| %>
   <div class="gif">
-    <%= image_tag gif.file.url %>
+    <%= image_tag gif.file.url(:preview), 'data-url' => gif.file.url %>
     <div class="gif-actions">
       <%= link_to 'Download to Dropbox', gif_download_path(gif), :remote => true, :method => :post %>
     </div>

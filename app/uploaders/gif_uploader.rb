@@ -1,5 +1,17 @@
 class GifUploader < CarrierWave::Uploader::Base
+  include CarrierWave::MiniMagick
+
   EXTENSIONS_WHITELIST = %w(gif)
+
+  version :preview do
+    process :convert => :jpg
+    process :quality => 80
+    process :strip # Do not store EXIF data in the thumb to save space
+
+    def full_filename(*args)
+      super.chomp(File.extname(super)) + '.jpg'
+    end
+  end
 
   def store_dir
     "gifs/#{model.unique_hash}"

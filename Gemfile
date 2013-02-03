@@ -13,6 +13,7 @@ gem 'fog'
 # Image processing
 gem 'fastimage'
 gem 'carrierwave'
+gem 'mini_magick'
 
 # Front end stuff
 gem 'jquery-rails'
