@@ -17,6 +17,7 @@ gem 'mini_magick'
 
 # Front end stuff
 gem 'jquery-rails'
+gem 'kaminari'
 
 # Production
 gem 'unicorn'
