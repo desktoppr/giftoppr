@@ -1,10 +1,13 @@
-<% @gifs.each do |gif| %>
-  <div class="gif">
-    <%= image_tag gif.file.url(:preview), 'data-url' => gif.file.url %>
-    <div class="gif-actions">
-      <%= link_to 'Download to Dropbox', gif_download_path(gif), :remote => true, :method => :post %>
-    </div>
-  </div>
-<% end %>
+<div id="gifs">
+</div>
 
-<%= paginate @gifs %>
+<div style="display: none">
+  <% @gifs.each do |gif| %>
+    <div class="gif">
+      <%= image_tag gif.file.url, 'style:' => "background: url(#{gif.file.url(:preview)})" %>
+      <div class="gif-actions">
+        <%= link_to 'Download to Dropbox', gif_download_path(gif), :remote => true, :method => :post %>
+      </div>
+    </div>
+  <% end %>
+</div>
