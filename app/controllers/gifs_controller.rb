@@ -12,6 +12,6 @@ class GifsController < ApplicationController
       Dropbox::Copier.copy_to_users_dropbox current_user.id, params[:id]
     end
 
-    respond_with :ok => true
+    render :nothing => true
   end
 end

@@ -16,6 +16,10 @@ jQuery =>
   #i = 0
   #$('.gif').each (i, x) =>
   # listView.append jQuery(x.outerHTML)
+  #
+  $.get '/gifs.json', (json) =>
+    for gif in json
+      $("#gifs").append "<p>#{gif.file.url}</p><p><a href='/gifs/#{gif.id}/download.json' data-method='post'>Download</a>"
 
-  $(window).scroll ->
-    console.log 'asdf'
+      #$(window).scroll ->
+      #console.log 'asdf'
