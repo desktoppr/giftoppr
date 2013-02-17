@@ -6,5 +6,6 @@
     <% if user_signed_in? %>
       <div class="gif-actions"><%= link_to 'Download to Dropbox', gif_download_path(gif), :remote => true, :method => :post %></div>
     <% end %>
+    <canvas class="gif-progress" width="50" height="50"></canvas>
   </div>
 </div>

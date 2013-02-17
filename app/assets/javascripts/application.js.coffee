@@ -2,6 +2,7 @@
 #= require jquery_ujs
 #= require underscore
 #= require base64ArrayBuffer
+#= require progressarc
 #= require_self
 
 Gif =
@@ -23,21 +24,34 @@ Gif =
     xhr.send null
 
   play: ($gif) ->
-    $image = $gif.find('img')
-    url    = $image.data 'url'
+    $canvas = $gif.find('canvas')
+    $image  = $gif.find('img')
+    url     = $image.data 'url'
+
+    $canvas.show()
+    $canvas.progressArc
+      styles:
+        fgColor: "#619fb9",
+        bgColor: "#333",
+        strokeWidth: 10
+      data:
+        start: 0
 
     unless $image.data('preview')
       $image.data 'preview', $image.attr('src')
 
     Gif.load url,
-      progress: ->
-        console.log arguments
+      progress: (progress) ->
+        $canvas.trigger 'setProgress', [ progress ]
+
       completed: (base64) ->
         $image.attr 'src', ('data:image/gif;base64,' + base64)
+        $canvas.hide()
 
   pause: ($gif) ->
     $image = $gif.find('img')
     $image.attr 'src', $image.data('preview')
+    $gif.find('canvas').hide()
 
   find: (element) ->
     jQuery(element).closest('.gif')
