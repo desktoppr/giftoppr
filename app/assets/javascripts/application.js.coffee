@@ -5,13 +5,17 @@
 
 Gif =
   load: ($gif) ->
-    url = $gif.data 'gif-url'
-    container = $gif.find('.gif-container')
-
-    container.html """<img src="#{url}" width="#{container.width()}" height="#{container.height()}" />"""
+    @toggle $gif
 
   pause: ($gif) ->
-    $gif.find('.gif-container').html ""
+    @toggle $gif
+
+  toggle: ($gif) ->
+    $image = $gif.find('img')
+    url    = $image.data 'url'
+
+    $image.data 'url', $image.attr('src')
+    $image.attr 'src', url
 
   find: (element) ->
     jQuery(element).closest('.gif')

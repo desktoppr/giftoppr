@@ -1,7 +1,7 @@
-<div id="gif-<%= gif.id %>" class="gif" data-gif-url="<%= gif.file.url %>">
+<div id="gif-<%= gif.id %>" class="gif">
   <div class="gif-inner">
     <div class="gif-preview">
-      <div class="gif-container" style="width: <%= gif.width %>px; height: <%= gif.height %>px; background: url(<%= gif.file.url(:preview) %>)"></div>
+      <img src="<%= gif.file.url(:preview) %>" width="<%= gif.width %>" height="<%= gif.height %>" data-url="<%= gif.file.url %>" />
     </div>
     <% if user_signed_in? %>
       <div class="gif-actions"><%= link_to 'Download to Dropbox', gif_download_path(gif), :remote => true, :method => :post %></div>
