@@ -1,10 +1,8 @@
 <div id="gif-<%= gif.id %>" class="gif">
-  <div class="gif-preview">
-    <%= image_tag gif.file.url(:preview), 'data-url' => gif.file.url %>
+  <div class="gif-inner">
+    <div class="gif-preview"><%= image_tag gif.file.url(:preview), 'data-url' => gif.file.url, :width => gif.width, :height => gif.height %></div>
+    <% if user_signed_in? %>
+      <div class="gif-actions"><%= link_to 'Download to Dropbox', gif_download_path(gif), :remote => true, :method => :post %></div>
+    <% end %>
   </div>
-  <% if user_signed_in? %>
-    <div class="gif-actions">
-      <%= link_to 'Download to Dropbox', gif_download_path(gif), :remote => true, :method => :post %>
-    </div>
-  <% end %>
 </div>
