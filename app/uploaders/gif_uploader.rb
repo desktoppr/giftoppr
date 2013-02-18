@@ -11,6 +11,7 @@ class GifUploader < CarrierWave::Uploader::Base
     # Only resize on width (the 9999999 height should ensure this)
     process :resize_to_fit => [ 300, 9999999 ]
     process :convert => 'jpg'
+    process :quality_and_strip => 80
 
     def width
       300
@@ -33,5 +34,19 @@ class GifUploader < CarrierWave::Uploader::Base
   # filenames
   def filename
     original_filename.try(:gsub, '+', '-')
+  end
+
+  private
+
+  # Run all the commands in 1 manipulate block to limit the amount of IO
+  # stuff that has to happen on a single upload
+  def quality_and_strip(percentage)
+    manipulate! do |img|
+      img.format('jpg') # We want to enforce jpeg so we can use good compression.
+      img.strip # Do not store EXIF data in the thumb to save space
+      img.quality(percentage.to_s)
+      img = yield(img) if block_given?
+      img
+    end
   end
 end
