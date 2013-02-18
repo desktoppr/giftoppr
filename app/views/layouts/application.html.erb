@@ -5,7 +5,7 @@
   <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= csrf_meta_tags %>
-  <script src="http://cdnjs.cloudflare.com/ajax/libs/headjs/0.99/head.load.min.js"></script>
+  <%= render :partial => 'layouts/head_js' %>
 </head>
 <body>
   <header>
