@@ -2,7 +2,36 @@
 @import compass/reset
 @import compass/css3/images
 @import font-awesome
-@import tipsy
+
+header
+  margin: 0 auto
+
+  #logo
+    margin-bottom: 10px
+
+  #header-inner
+    padding: 25px 0 5px 22px
+    position: relative
+
+    ul
+      position: absolute
+      right: 25px
+      top: 70px
+
+      li
+        float: left
+        font-family: 'Raleway', sans-serif
+        font-weight: normal
+        font-size: 17px
+        margin-left: 10px
+        color: black
+
+        a
+          text-decoration: none
+          color: #bc4338
+
+          &:hover
+            text-decoration: underline
 
 #gifs
   margin: 0 auto
@@ -48,9 +77,3 @@
   bottom: 10px
   right: 10px
   z-index: 10
-
-.tipsy-inner
-  font-family: Helvetica
-  font-size: 13px
-  padding: 5px 10px
-  margin-top: 2px

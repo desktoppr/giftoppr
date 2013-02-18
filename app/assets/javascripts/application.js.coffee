@@ -73,15 +73,17 @@ Gif =
     jQuery(element).closest('.gif')
 
 jQuery ->
-  jQuery('.gif').on
+  jQuery('.gif-preview').on
     mouseenter: (event) ->
       Gif.play Gif.find(event.target)
     mouseleave: (event) ->
       Gif.pause Gif.find(event.target)
 
   $('#gifs').isotope
+    itemSelector: '.gif'
     layoutMode: 'masonry'
-
+    onLayout: ->
+      jQuery('header').width $('#gifs').width()
 
   $('a').tipsy
     live: true

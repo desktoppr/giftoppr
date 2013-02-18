@@ -2,21 +2,29 @@
 <html>
 <head>
   <title>Giftoppr</title>
+  <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <h1>Giftoppr</h1>
   <header>
-    <ul>
-      <% if user_signed_in? %>
-        <li>Welcome <%= current_user.name %></li>
-        <li><%= link_to "Logout", auth_logout_path %></li>
-      <% else %>
-        <li><%= link_to "Signin with Dropbox", auth_path(:dropbox) %></li>
-      <% end %>
-    </ul>
+    <div id="header-inner">
+      <div id="logo">
+        <%= image_tag "logo.png", :width => 253, :height => 55 %>
+      </div>
+      <a href="https://www.desktoppr.co" id="by-desktoppr">
+        <%= image_tag "by.png", :width => 158, :height => 38 %>
+      </a>
+      <ul>
+        <% if user_signed_in? %>
+          <li>Hi <%= current_user.name %>!</li>
+          <li><%= link_to "Logout", auth_logout_path %></li>
+        <% else %>
+          <li><%= link_to "Signin with Dropbox", auth_path(:dropbox) %></li>
+        <% end %>
+      </ul>
+    </div>
   </header>
   <div id="container">
     <%= yield %>
