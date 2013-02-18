@@ -15,6 +15,6 @@ class SessionsController < ApplicationController
   end
 
   def failure
-    render :text => "Failure!"
+    render :text => "Oh noes! The magical Dropbox linky thing that we tried to do just didn't work out. We're sorry. http://dropbox-errors.nononono.co/"
   end
 end
