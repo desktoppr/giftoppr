@@ -30,7 +30,7 @@ Gif =
 
     setTimeout =>
       reallyLoading = true
-    , 250
+    , 500
 
   play: ($gif) ->
     $canvas = $gif.find('canvas')
