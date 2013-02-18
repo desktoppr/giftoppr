@@ -89,4 +89,3 @@ jQuery ->
     live: true
     gravity: 'w'
     offset: 25
-    fade: true
