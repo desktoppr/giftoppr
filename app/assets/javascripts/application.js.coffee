@@ -43,7 +43,7 @@ Gif =
       styles:
         fgColor: "#ffffff",
         bgColor: "transparent",
-        strokeWidth: 8
+        strokeWidth: 6
       data:
         start: 0
 
