@@ -38,17 +38,22 @@ Gif =
     unless $image.data('preview')
       $image.data 'preview', $image.attr('src')
 
+    $image.data 'playing', true
+
     Gif.load url,
       progress: (progress) ->
         $canvas.trigger 'setProgress', [ progress ]
 
       completed: ->
-        $image.attr 'src', url
-        $canvas.hide()
+        if $image.data 'playing'
+          $image.attr 'src', url
+          $canvas.hide()
 
   pause: ($gif) ->
     $image = $gif.find('img')
     $image.attr 'src', $image.data('preview')
+    $image.data 'playing', false
+
     $gif.find('canvas').hide()
 
   find: (element) ->
