@@ -1,7 +1,7 @@
 <div id="gif-<%= gif.id %>" class="gif">
   <div class="gif-inner">
     <div class="gif-preview">
-      <canvas class="gif-progress" width="50" height="50" style="display: none"></canvas>
+      <canvas class="gif-progress" width="38" height="38" style="display: none"></canvas>
       <% if user_signed_in? %>
         <div class="gif-actions">
           <%= link_to '<i class="icon-cloud-download"></i>'.html_safe, gif_download_path(gif), :remote => true, :method => :post %>
