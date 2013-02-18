@@ -1,5 +1,7 @@
 # Giftoppr
 
+[https://github.com/desktoppr/giftoppr/blob/master/app/assets/images/logo.png?raw=true](Giftoppr)
+
 ### Environment Variables
 
 ```bash
