@@ -5,6 +5,7 @@
   <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= csrf_meta_tags %>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/headjs/0.99/head.load.min.js"></script>
 </head>
 <body>
   <header>
@@ -28,6 +29,6 @@
   <div id="container">
     <%= yield %>
   </div>
-  <%= javascript_include_tag "application" %>
+  <script>head.js("<%= javascript_path "application" %>");</script>
 </body>
 </html>
