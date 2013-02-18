@@ -11,26 +11,36 @@ Gif =
     xhr.responseType = 'arraybuffer'
     xhr.overrideMimeType 'text/plain; charset=x-user-defined'
 
+    # Theres no reliable way to determine if the image is loading from a cache,
+    # so we'll only start emitting progress events after 100ms
+    reallyLoading = false
+
     xhr.onload = (event) ->
       if xhr.readyState == 4
         if xhr.status == 200
           options.completed()
 
     xhr.onprogress = (event) ->
-      options.progress (event.loaded / event.total) * 100
+      if reallyLoading
+        options.progress (event.loaded / event.total) * 100
 
     xhr.send null
+
+    setTimeout =>
+      reallyLoading = true
+    , 100
 
   play: ($gif) ->
     $canvas = $gif.find('canvas')
     $image  = $gif.find('img')
     url     = $image.data 'url'
+    loading = false
 
     $canvas.show()
     $canvas.progressArc
       styles:
-        fgColor: "#619fb9",
-        bgColor: "#333",
+        fgColor: "#ffffff",
+        bgColor: "transparent",
         strokeWidth: 10
       data:
         start: 0

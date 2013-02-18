@@ -2,10 +2,10 @@
   <div class="gif-inner">
     <div class="gif-preview">
       <img src="<%= gif.file.url(:preview) %>" width="<%= gif.width %>" height="<%= gif.height %>" data-url="<%= gif.file.url %>" />
+      <canvas class="gif-progress" width="50" height="50" style="display: none"></canvas>
     </div>
     <% if user_signed_in? %>
       <div class="gif-actions"><%= link_to 'Download to Dropbox', gif_download_path(gif), :remote => true, :method => :post %></div>
     <% end %>
-    <canvas class="gif-progress" width="50" height="50" style="display: none"></canvas>
   </div>
 </div>
