@@ -4,7 +4,7 @@
       <canvas class="gif-progress" width="30" height="30" style="display: none"></canvas>
       <% if user_signed_in? %>
         <div class="gif-actions">
-          <%= link_to '<i class="icon-cloud-download"></i>'.html_safe, gif_download_path(gif), :remote => true, :method => :post %>
+          <%= link_to '<i class="icon-cloud-download"></i>'.html_safe, gif_download_path(gif), :remote => true, :method => :post, :title => 'Sync to Dropbox' %>
         </div>
       <% end %>
       <img src="<%= gif.file.url(:preview) %>" width="<%= gif.file.preview.width %>" height="<%= gif.file.preview.height %>" data-url="<%= gif.file.url %>" />

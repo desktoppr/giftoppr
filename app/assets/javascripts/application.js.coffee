@@ -2,6 +2,7 @@
 #= require jquery_ujs
 #= require jquery.isotope
 #= require jquery.isotope.centered
+#= require jquery.tipsy
 #= require underscore
 #= require progressarc
 #= require_self
@@ -80,3 +81,10 @@ jQuery ->
 
   $('#gifs').isotope
     layoutMode: 'masonry'
+
+
+  $('a').tipsy
+    live: true
+    gravity: 'w'
+    offset: 25
+    fade: true
