@@ -1,7 +1,6 @@
 #= require jquery
 #= require jquery_ujs
 #= require underscore
-#= require base64ArrayBuffer
 #= require progressarc
 #= require_self
 
@@ -15,8 +14,7 @@ Gif =
     xhr.onload = (event) ->
       if xhr.readyState == 4
         if xhr.status == 200
-          base64Encoded = base64ArrayBuffer(xhr.response)
-          options.completed base64Encoded
+          options.completed()
 
     xhr.onprogress = (event) ->
       options.progress (event.loaded / event.total) * 100
@@ -44,8 +42,8 @@ Gif =
       progress: (progress) ->
         $canvas.trigger 'setProgress', [ progress ]
 
-      completed: (base64) ->
-        $image.attr 'src', ('data:image/gif;base64,' + base64)
+      completed: ->
+        $image.attr 'src', url
         $canvas.hide()
 
   pause: ($gif) ->
