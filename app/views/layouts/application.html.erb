@@ -5,7 +5,7 @@
   <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= csrf_meta_tags %>
-  <%= render :partial => 'layouts/head_js' %>
+  <%= render :partial => 'layouts/script_loader' %>
 </head>
 <body>
   <header>
@@ -29,6 +29,6 @@
   <div id="container">
     <%= yield %>
   </div>
-  <script>head.js("<%= javascript_path "application" %>");</script>
+  <script>$script("<%= javascript_path "application" %>");</script>
 </body>
 </html>
