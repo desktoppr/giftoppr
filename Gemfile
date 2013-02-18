@@ -16,7 +16,6 @@ gem 'carrierwave'
 gem 'mini_magick'
 
 # Front end stuff
-gem 'jquery-rails'
 gem 'kaminari'
 
 # Production
@@ -27,6 +26,9 @@ gem 'bugsnag'
 group :assets do
   gem 'sass-rails'
   gem 'coffee-rails'
+  gem 'compass-rails'
+  gem 'jquery-rails'
+  gem 'font-awesome-rails'
   gem 'uglifier'
 end
 

@@ -8,6 +8,18 @@ class GifUploader < CarrierWave::Uploader::Base
   end
 
   version :preview do
+    # Only resize on width (the 9999999 height should ensure this)
+    process :resize_to_fit => [ 300, 9999999 ]
+    process :convert => 'jpg'
+
+    def width
+      300
+    end
+
+    def height
+      (model.height.to_f / model.width.to_f * width).floor
+    end
+
     def full_filename(*args)
       super.chomp(File.extname(super)) + '.jpg' # Force extension to be jpg
     end

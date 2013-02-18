@@ -1,5 +1,7 @@
 #= require jquery
 #= require jquery_ujs
+#= require jquery.isotope
+#= require jquery.isotope.centered
 #= require underscore
 #= require progressarc
 #= require_self
@@ -70,8 +72,11 @@ Gif =
     jQuery(element).closest('.gif')
 
 jQuery ->
-  jQuery('.gif-inner').on
+  jQuery('.gif').on
     mouseenter: (event) ->
       Gif.play Gif.find(event.target)
     mouseleave: (event) ->
       Gif.pause Gif.find(event.target)
+
+  $('#gifs').isotope
+    layoutMode: 'masonry'

@@ -1,7 +1,7 @@
 <div id="gif-<%= gif.id %>" class="gif">
   <div class="gif-inner">
     <div class="gif-preview">
-      <img src="<%= gif.file.url(:preview) %>" width="<%= gif.width %>" height="<%= gif.height %>" data-url="<%= gif.file.url %>" />
+      <img src="<%= gif.file.url(:preview) %>" width="<%= gif.file.preview.width %>" height="<%= gif.file.preview.height %>" data-url="<%= gif.file.url %>" />
       <canvas class="gif-progress" width="50" height="50" style="display: none"></canvas>
     </div>
     <% if user_signed_in? %>
