@@ -6,7 +6,6 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= csrf_meta_tags %>
   <%= render :partial => 'layouts/head_js' %>
-  <script>head.js("<%= javascript_path "application" %>");</script>
 </head>
 <body>
   <header>
@@ -30,5 +29,6 @@
   <div id="container">
     <%= yield %>
   </div>
+  <script>head.js("<%= javascript_path "application" %>");</script>
 </body>
 </html>
