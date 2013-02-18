@@ -22,6 +22,7 @@ gem 'kaminari'
 # Production
 gem 'unicorn'
 gem 'foreman'
+gem 'bugsnag'
 
 group :assets do
   gem 'sass-rails'
