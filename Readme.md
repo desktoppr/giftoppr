@@ -9,8 +9,16 @@ DROPBOX_SECRET=""
 
 ### Heroku
 
+Ensure environment variables are available during deploys.
+
 ```bash
 heroku labs:enable user-env-compile
+```
+
+Increase maximum database connections to 20
+
+```bash
+heroku config -s | awk '/^DATABASE_URL=/{print $0 "?pool=20"}' | xargs heroku config:add
 ```
 
 ### CORS and S3
