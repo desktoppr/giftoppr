@@ -120,5 +120,5 @@ jQuery ->
   $(window).scroll InfiniteScroll.scroll
   InfiniteScroll.scroll()
 
-  $("img.lazy").lazyload(effect: "fadeIn", failure_limit: 15)
+  $("img.lazy").lazyload(failure_limit: 15)
   $(window).trigger('scroll')
