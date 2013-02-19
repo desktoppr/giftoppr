@@ -5,7 +5,6 @@
 ```bash
 DROPBOX_KEY=""
 DROPBOX_SECRET=""
-ASSET_HOST="" # For production asset host
 ```
 
 ### Heroku
