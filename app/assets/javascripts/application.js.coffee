@@ -1,6 +1,7 @@
 #= require jquery
 #= require jquery_ujs
 #= require jquery.tipsy
+#= require jquery.lazyload
 #= require underscore
 #= require progressarc
 #= require_self
@@ -88,6 +89,11 @@ InfiniteScroll =
 
     context = jQuery jQuery.parseHTML(html)
 
+    # Don't lazy load these images
+    context.find('img.lazy').each (idx, el) ->
+      el = jQuery(el)
+      el.attr 'src', el.data('original')
+
     # Update groups
     jQuery('#group-0').append context.find('#group-0').html()
     jQuery('#group-1').append context.find('#group-1').html()
@@ -113,3 +119,6 @@ jQuery ->
 
   $(window).scroll InfiniteScroll.scroll
   InfiniteScroll.scroll()
+
+  $("img.lazy").lazyload(effect: "fadeIn", failure_limit: 15)
+  $(window).trigger('scroll')

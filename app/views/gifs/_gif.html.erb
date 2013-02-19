@@ -7,7 +7,7 @@
           <%= link_to '<i class="icon-cloud-download"></i>'.html_safe, gif_download_path(gif), :remote => true, :method => :post, :title => 'Sync to Dropbox' %>
         </div>
       <% end %>
-      <img src="<%= gif.file.url(:preview) %>" width="<%= gif.file.preview.width %>" height="<%= gif.file.preview.height %>" data-url="<%= gif.file.url %>" />
+      <img src="<%= asset_path 'blank.png' %>" data-original="<%= gif.file.url(:preview) %>" width="<%= gif.file.preview.width %>" height="<%= gif.file.preview.height %>" data-url="<%= gif.file.url %>" class="lazy" />
     </div>
   </div>
 </div>
