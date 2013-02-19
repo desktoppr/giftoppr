@@ -9,6 +9,7 @@ gem 'dropbox-sdk', :require => 'dropbox_sdk'
 
 # Uploading assets to S3
 gem 'fog'
+gem 'asset_sync'
 
 # Image processing
 gem 'fastimage'
