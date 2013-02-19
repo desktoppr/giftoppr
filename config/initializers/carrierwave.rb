@@ -18,10 +18,17 @@ CarrierWave.configure do |config|
       :persistent             => false # This is required to prevent write timeouts from PUT requests to S3
     }
 
+    # You need to double lambda if you want access to the file object
+    # See: https://github.com/jnicklas/carrierwave/issues/763#issuecomment-6724033
+    config.asset_host = lambda do
+      lambda do |file|
+        ENV['FOG_HOST'].gsub /%d/, (file.path.sum % 4).to_s
+      end
+    end
+
     config.fog_directory  = ENV['FOG_DIRECTORY']
     config.fog_public     = true
     config.fog_attributes = {'Cache-Control'=>'max-age=315576000'}
-    config.asset_host     = ENV['FOG_HOST']
   else
     config.storage = :file
   end
