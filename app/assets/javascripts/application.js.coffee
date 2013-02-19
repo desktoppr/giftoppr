@@ -1,7 +1,5 @@
 #= require jquery
 #= require jquery_ujs
-#= require jquery.isotope
-#= require jquery.isotope.centered
 #= require jquery.tipsy
 #= require underscore
 #= require progressarc
@@ -72,20 +70,46 @@ Gif =
   find: (element) ->
     jQuery(element).closest('.gif')
 
-jQuery ->
-  jQuery('.gif-preview').on
-    mouseenter: (event) ->
-      Gif.play Gif.find(event.target)
-    mouseleave: (event) ->
-      Gif.pause Gif.find(event.target)
+InfiniteScroll =
+  scroll: _.throttle ->
+    scrollTop = $(window).scrollTop()
+    bottom    = $(document).height() - $(window).height()
+    buffer    = 1000
+    nextLink  = $('.pagination .next a')
 
-  $('#gifs').isotope
-    itemSelector: '.gif'
-    layoutMode: 'masonry'
-    onLayout: ->
-      jQuery('header').width $('#gifs').width()
+    if nextLink.length && scrollTop > (bottom - buffer)
+      url = nextLink.attr('href')
+      $.get url, (html) ->
+        InfiniteScroll.refresh html, url
+  , 250
+
+  refresh: (html, url) ->
+    history.replaceState null, null, url
+
+    context = jQuery jQuery.parseHTML(html)
+
+    # Update groups
+    jQuery('#group-0').append context.find('#group-0').html()
+    jQuery('#group-1').append context.find('#group-1').html()
+    jQuery('#group-2').append context.find('#group-2').html()
+
+    # Update pagination
+    jQuery('.pagination').replaceWith context.find('.pagination')
+
+    # Hide pagination
+    $('.pagination').hide()
+
+jQuery ->
+  jQuery(document).on 'mouseenter', '.gif-preview', (event) ->
+      Gif.play Gif.find(event.target)
+
+  jQuery(document).on 'mouseleave', '.gif-preview', (event) ->
+      Gif.pause Gif.find(event.target)
 
   $('a').tipsy
     live: true
     gravity: 'w'
     offset: 25
+
+  $(window).scroll InfiniteScroll.scroll
+  InfiniteScroll.scroll()
