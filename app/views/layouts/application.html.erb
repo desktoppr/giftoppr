@@ -31,9 +31,8 @@
   </div>
   <script>
     $script("<%= javascript_path "application" %>");
-    $script("<%= javascript_path "webfont.js" %>", function() {
-      WebFont.load({ google: { families: [ 'Raleway' ] } });
-    });
+
+    WebFont.load({ google: { families: [ 'Raleway' ] } });
   </script>
 </body>
 </html>
