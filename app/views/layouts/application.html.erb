@@ -7,8 +7,10 @@
   <%= stylesheet_link_tag "application", :media => "all" %>
   <%= csrf_meta_tags %>
   <%= render :partial => 'layouts/script_loader' %>
+  <%= render :partial => 'layouts/social_scripts' %>
 </head>
 <body>
+  <div id="fb-root"></div>
   <header>
     <div id="header-inner">
       <div id="logo">
