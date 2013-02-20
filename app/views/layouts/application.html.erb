@@ -2,7 +2,6 @@
 <html>
 <head>
   <title>Giftoppr</title>
-  <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
   <link rel="shortcut icon" href="<%= image_path "favicon.ico" %>" type="image/x-icon" />
   <%= stylesheet_link_tag "application", :media => "all" %>
   <%= csrf_meta_tags %>
@@ -22,7 +21,7 @@
           <li>Hi <%= current_user.name %>!</li>
           <li><%= link_to "Logout", auth_logout_path %></li>
         <% else %>
-          <li><%= link_to "Signin with Dropbox", auth_path(:dropbox) %></li>
+          <li><%= link_to "Signin with Dropbox", auth_path(:dropbox), :id => 'sign-in-link' %></li>
         <% end %>
       </ul>
     </div>
@@ -30,6 +29,12 @@
   <div id="container">
     <%= yield %>
   </div>
-  <script>$script("<%= javascript_path "application" %>");</script>
+  <script>
+    $script("<%= javascript_path "application" %>");
+    $script("//ajax.googleapis.com/ajax/libs/webfont/1.0.31/webfont.js", function() {
+      WebFont.load({ google: { families: [ 'Raleway' ] } });
+      document.getElementById('sign-in-link').style.visibility="visible";
+    });
+  </script>
 </body>
 </html>
