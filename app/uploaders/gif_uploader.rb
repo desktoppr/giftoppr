@@ -7,6 +7,18 @@ class GifUploader < CarrierWave::Uploader::Base
     "gifs/#{model.unique_hash}"
   end
 
+  version :uncompressed do
+    process :resize_to_fit => [ 300, 9999999 ]
+
+    def width
+      300
+    end
+
+    def height
+      (model.height.to_f / model.width.to_f * width).floor
+    end
+  end
+
   version :preview do
     # Only resize on width (the 9999999 height should ensure this)
     process :resize_to_fit => [ 300, 9999999 ]
