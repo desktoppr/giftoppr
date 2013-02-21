@@ -9,6 +9,7 @@ class GifUploader < CarrierWave::Uploader::Base
 
   version :uncompressed do
     process :resize_to_fit => [ 300, 9999999 ]
+    process :convert => 'jpg'
 
     def width
       300
