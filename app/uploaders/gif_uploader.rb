@@ -18,6 +18,10 @@ class GifUploader < CarrierWave::Uploader::Base
     def height
       (model.height.to_f / model.width.to_f * width).floor
     end
+
+    def full_filename(*args)
+      super.chomp(File.extname(super)) + '.jpg' # Force extension to be jpg
+    end
   end
 
   version :preview do
