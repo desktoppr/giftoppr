@@ -8,25 +8,25 @@
   <%= render :partial => 'layouts/script_loader' %>
 </head>
 <body>
-  <header>
-    <div id="header-inner">
-      <div id="logo">
-        <%= image_tag "logo.png", :width => 253, :height => 55 %>
-      </div>
-      <a href="https://www.desktoppr.co" id="by-desktoppr">
-        <%= image_tag "by.png", :width => 158, :height => 38 %>
-      </a>
-      <ul>
-        <% if user_signed_in? %>
-          <li>Hi <%= current_user.name %>!</li>
-          <li><%= link_to "Logout", auth_logout_path %></li>
-        <% else %>
-          <li><%= link_to "Signin with Dropbox", auth_path(:dropbox), :id => 'sign-in-link' %></li>
-        <% end %>
-      </ul>
-    </div>
-  </header>
   <div id="container">
+    <header>
+      <div id="header-inner">
+        <a href="/" id="logo">
+          <%= image_tag "logo.png", :width => 253, :height => 55 %>
+        </a>
+        <a href="https://www.desktoppr.co" id="by-desktoppr">
+          <%= image_tag "by.png", :width => 158, :height => 38 %>
+        </a>
+        <ul>
+          <% if user_signed_in? %>
+            <li>Hi <%= current_user.name %>!</li>
+            <li><%= link_to "Logout", auth_logout_path %></li>
+          <% else %>
+            <li><%= link_to "Signin with Dropbox", auth_path(:dropbox) %></li>
+          <% end %>
+        </ul>
+      </div>
+    </header>
     <%= yield %>
   </div>
   <script>
