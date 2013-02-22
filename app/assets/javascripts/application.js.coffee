@@ -80,8 +80,8 @@ InfiniteScroll =
 
     if nextLink.length && scrollTop > (bottom - buffer)
       url = nextLink.attr('href')
-      $.get url, (html) ->
-        InfiniteScroll.refresh html, url
+      callback = _.once (html) -> InfiniteScroll.refresh html, url
+      $.get url, callback
   , 250
 
   refresh: (html, url) ->
