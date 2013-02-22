@@ -2,11 +2,13 @@
   <div class="gif-inner">
     <div class="gif-preview">
       <canvas class="gif-progress" width="30" height="30" style="display: none"></canvas>
-      <% if user_signed_in? %>
-        <div class="gif-actions">
+      <div class="gif-actions">
+        <% if user_signed_in? %>
           <%= link_to '<i class="icon-cloud-download"></i>'.html_safe, gif_download_path(gif), :remote => true, :method => :post, :title => 'Sync to Dropbox' %>
-        </div>
-      <% end %>
+        <% else %>
+          <%= link_to '<i class="icon-cloud-download"></i>'.html_safe, auth_path(:dropbox), :title => 'Signin with Dropbox' %>
+        <% end %>
+      </div>
       <img src="<%= asset_path 'blank.png' %>" data-original="<%= gif.file.url(:preview) %>" width="<%= gif.file.preview.width %>" height="<%= gif.file.preview.height %>" data-url="<%= gif.file.url %>" class="lazy" />
     </div>
   </div>
