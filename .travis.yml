@@ -3,6 +3,8 @@ env:
   global:
     - DROPBOX_KEY=""
     - DROPBOX_SECRET=""
+before_script:
+  - ./script/travis/setup
 script: time rake
 notifications:
   email:

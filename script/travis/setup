@@ -1,0 +1,3 @@
+# Setup the test database
+psql -c 'create database giftoppr_test;' -U postgres
+rake db:schema:load
