@@ -1,0 +1,15 @@
+<div id="image-<%= image.id %>" class="image">
+  <div class="image-inner">
+    <div class="image-preview">
+      <canvas class="image-progress" width="30" height="30" style="display: none"></canvas>
+      <div class="image-actions">
+        <% if user_signed_in? %>
+          <%= link_to '<i class="icon-cloud-download"></i>'.html_safe, image_download_path(image), :remote => true, :method => :post, :title => 'Sync to Dropbox' %>
+        <% else %>
+          <%= link_to '<i class="icon-cloud-download"></i>'.html_safe, auth_path(:dropbox), :title => 'Signin with Dropbox' %>
+        <% end %>
+      </div>
+      <img src="<%= asset_path 'blank.png' %>" data-original="<%= image.file.url(:preview) %>" width="<%= image.file.preview.width %>" height="<%= image.file.preview.height %>" data-url="<%= image.file.url %>" class="lazy" />
+    </div>
+  </div>
+</div>

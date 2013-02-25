@@ -1,10 +1,10 @@
-class GifUploader < CarrierWave::Uploader::Base
+class ImageUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
 
-  EXTENSIONS_WHITELIST = %w(gif)
+  EXTENSIONS_WHITELIST = %w(gif jpeg jpg png)
 
   def store_dir
-    "gifs/#{model.unique_hash}"
+    "uploads/#{model.unique_hash}"
   end
 
   version :uncompressed do

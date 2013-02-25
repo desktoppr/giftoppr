@@ -19,8 +19,12 @@ module Dropbox
       @user.update_attribute :change_cursor, cursor if cursor
     end
 
+    def extension_expression
+      /.(#{ImageUploader::EXTENSIONS_WHITELIST.join('|')})/
+    end
+
     def sync_and_return_cursor(cursor)
-      files = @account.changed_files_from_cursor(cursor, /.gif/)
+      files = @account.changed_files_from_cursor cursor, extension_expression
 
       if files
         files[:entries].each do |file|

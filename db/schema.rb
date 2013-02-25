@@ -11,9 +11,9 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130202071957) do
+ActiveRecord::Schema.define(:version => 20130225063654) do
 
-  create_table "gifs", :force => true do |t|
+  create_table "images", :force => true do |t|
     t.string   "file",        :null => false
     t.integer  "width",       :null => false
     t.integer  "height",      :null => false
@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(:version => 20130202071957) do
     t.datetime "updated_at",  :null => false
   end
 
-  add_index "gifs", ["unique_hash"], :name => "index_gifs_on_unique_hash"
+  add_index "images", ["unique_hash"], :name => "index_gifs_on_unique_hash"
 
   create_table "sessions", :force => true do |t|
     t.string   "session_id", :null => false

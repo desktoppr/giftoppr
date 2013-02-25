@@ -1,13 +1,13 @@
-<div id="gifs">
+<div id="images">
   <% groups = { "0" => [], "1" => [], "2" => [] } %>
-  <% @gifs.each do |gif| %>
-    <% groups[cycle("0", "1", "2")] << gif %>
+  <% @images.each do |image| %>
+    <% groups[cycle("0", "1", "2")] << image %>
   <% end %>
 
-  <% groups.each do |index, gifs| %>
-    <div id="group-<%= index %>" class="gif-group">
-      <%= render gifs %>
+  <% groups.each do |index, images| %>
+    <div id="group-<%= index %>" class="image-group">
+      <%= render images %>
     </div>
   <% end %>
 </div>
-<%= paginate @gifs %>
+<%= paginate @images %>

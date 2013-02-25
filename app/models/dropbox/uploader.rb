@@ -14,17 +14,17 @@ module Dropbox
       image_data   = @account.image_data_for_path(@path)
 
       if image_data
-        existing_gif = Gif.find_by_unique_hash image_data[:unique_hash]
+        existing_image = Image.find_by_unique_hash image_data[:unique_hash]
 
-        if existing_gif.blank?
+        if existing_image.blank?
           # Sometimes a use has duplicate wallpapers which download in quick
           # succession. This causes a race condition and we end up trying to create
           # another wallpaper. We catch this exception here and do nothing (the
           # wallpaper is already on desktoppr).
           begin
-            Gif.new(image_data).tap do |gif|
-              gif.uploader = @user
-              gif.save!
+            Image.new(image_data).tap do |image|
+              image.uploader = @user
+              image.save!
             end
           rescue ActiveRecord::RecordNotUnique
           end

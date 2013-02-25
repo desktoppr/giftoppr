@@ -8,19 +8,19 @@ users = if User.count > 0
           end
         end
 
-gifs = Dir[File.join DROPBOX_PATH, "*"]
+images = Dir[File.join DROPBOX_PATH, "*"]
 
-gifs.each do |path|
+images.each do |path|
   size = FastImage.size(path)
 
   if size
     unique_hash = `md5 -r "#{path}"`.split(' ')[0]
 
-    gif =  Gif.new :file => File.new(path), :width => size[0], :height => size[1], :unique_hash => unique_hash, :bytes => File.size(path)
-    gif.uploader = users.sample
-    gif.save!
+    image =  Image.new :file => File.new(path), :width => size[0], :height => size[1], :unique_hash => unique_hash, :bytes => File.size(path)
+    image.uploader = users.sample
+    image.save!
 
-    p gif
+    p image
   else
     puts "Could not calculate size for #{path}"
   end

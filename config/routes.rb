@@ -1,5 +1,5 @@
 Giftoppr::Application.routes.draw do
-  post '/gifs/:id/download', :to => 'gifs#download', :as => 'gif_download'
+  post '/images/:id/download', :to => 'images#download', :as => 'image_download'
 
   scope "/auth" do
     match 'logout', :to => 'sessions#destroy', :as => 'auth_logout'

@@ -1,4 +1,4 @@
-Gif =
+Image =
   load: (url, options) ->
     xhr = new XMLHttpRequest()
     xhr.open "GET", url
@@ -24,9 +24,9 @@ Gif =
       reallyLoading = true
     , 500
 
-  play: ($gif) ->
-    $canvas = $gif.find('canvas')
-    $image  = $gif.find('img')
+  play: ($image) ->
+    $canvas = $image.find('canvas')
+    $image  = $image.find('img')
     url     = $image.data 'url'
     loading = false
 
@@ -44,7 +44,7 @@ Gif =
 
     $image.data 'playing', true
 
-    Gif.load url,
+    Image.load url,
       progress: (progress) ->
         $canvas.trigger 'setProgress', [ progress ]
 
@@ -53,15 +53,15 @@ Gif =
           $image.attr 'src', url
           $canvas.hide()
 
-  pause: ($gif) ->
-    $image = $gif.find('img')
+  pause: ($image) ->
+    $image = $image.find('img')
     $image.attr 'src', $image.data('preview')
     $image.data 'playing', false
 
-    $gif.find('canvas').hide()
+    $image.find('canvas').hide()
 
   find: (element) ->
-    jQuery(element).closest('.gif')
+    jQuery(element).closest('.image')
 
 InfiniteScroll =
   scroll: _.throttle ->
@@ -98,11 +98,11 @@ InfiniteScroll =
     $('.pagination').hide()
 
 jQuery ->
-  jQuery(document).on 'mouseenter', '.gif-preview', (event) ->
-      Gif.play Gif.find(event.target)
+  jQuery(document).on 'mouseenter', '.image-preview', (event) ->
+      Image.play Image.find(event.target)
 
-  jQuery(document).on 'mouseleave', '.gif-preview', (event) ->
-      Gif.pause Gif.find(event.target)
+  jQuery(document).on 'mouseleave', '.image-preview', (event) ->
+      Image.pause Image.find(event.target)
 
   $('a').tipsy
     live: true
