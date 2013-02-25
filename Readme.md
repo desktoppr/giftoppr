@@ -1,4 +1,5 @@
 ![Giftoppr](https://github.com/desktoppr/giftoppr/blob/master/app/assets/images/logo.png?raw=true)
+
 [![Build Status](https://travis-ci.org/desktoppr/giftoppr.png?branch=master)](https://travis-ci.org/desktoppr/giftoppr)
 
 ### Environment Variables
