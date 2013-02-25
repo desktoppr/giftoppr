@@ -1,0 +1,14 @@
+rvm: 2.0.0
+env:
+  global:
+    - DROPBOX_KEY=""
+    - DROPBOX_SECRET=""
+script: time rake
+notifications:
+  email:
+    recipients:
+      - me@keithpitt.com
+      - mario@mariovisic.com
+branches:
+  only:
+    - master
