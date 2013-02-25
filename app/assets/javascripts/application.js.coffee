@@ -1,11 +1,3 @@
-#= require jquery
-#= require jquery_ujs
-#= require jquery.tipsy
-#= require jquery.lazyload
-#= require underscore
-#= require progressarc
-#= require_self
-
 Gif =
   load: (url, options) ->
     xhr = new XMLHttpRequest()

@@ -30,8 +30,7 @@
     <%= yield %>
   </div>
   <script>
-    $script("<%= javascript_path "application" %>");
-
+    $script([ "<%= javascript_path "vendor" %>", "<%= javascript_path "application" %>" ]);
     WebFont.load({ google: { families: [ 'Raleway' ] } });
   </script>
 </body>
