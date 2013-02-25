@@ -1,8 +1,8 @@
 rvm: 2.0.0
 env:
   global:
-    - DROPBOX_KEY=""
-    - DROPBOX_SECRET=""
+    - DROPBOX_KEY="..."
+    - DROPBOX_SECRET="..."
 before_script:
   - ./script/travis/setup
 script: time rake
