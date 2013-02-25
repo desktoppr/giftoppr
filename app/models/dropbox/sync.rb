@@ -1,5 +1,9 @@
 module Dropbox
   class Sync
+    def self.sync_from_cursor(user_id)
+      new(user_id).sync_from_cursor
+    end
+
     def initialize(user_id)
       @user = User.find(user_id)
       @account = Account.new(@user.oauth_token, @user.oauth_secret)

@@ -42,7 +42,9 @@ module Dropbox
       # means the user has deauthorized dropbox.  Might be a good idea here
       # to perform some action. Maybe if it keeps on happening we unlink
       # their dropbox?
-      Rails.logger.warn "Dropbox Account #{id} failed to get delta changes with error: #{e.message}. Skipping"
+      Rails.logger.warn "Dropbox Account failed to get delta changes with error: #{e.message}. Skipping"
+
+      nil
     end
 
     private
