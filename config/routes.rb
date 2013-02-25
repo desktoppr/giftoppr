@@ -10,5 +10,7 @@ Giftoppr::Application.routes.draw do
     match ':provider/callback', :to => 'sessions#create'
   end
 
+  get '/:image.gif' => 'images#show'
+
   root :to => 'public#index'
 end
