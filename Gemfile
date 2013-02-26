@@ -1,8 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.0.0'
-
-gem 'rails', :github => "rails/rails", :branch => "3-2-stable"
+gem 'rails', '4.0.0.beta1'
 gem 'pg'
 
 # Dropbox
@@ -20,15 +18,18 @@ gem 'mini_magick'
 
 # Front end stuff
 gem 'kaminari'
+gem 'turbolinks'
 
 # Production
 gem 'unicorn'
 gem 'foreman'
 gem 'bugsnag'
 
+# Gems used only for assets and not required
+# in production environments by default.
 group :assets do
-  gem 'sass-rails'
-  gem 'coffee-rails'
+  gem 'sass-rails',   '~> 4.0.0.beta1'
+  gem 'coffee-rails', '~> 4.0.0.beta1'
   gem 'compass-rails'
   gem 'jquery-rails'
   gem 'font-awesome-rails'
