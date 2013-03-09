@@ -18,6 +18,9 @@ DROPBOX_SECRET=""
 Then:
 
 ```bash
+brew install postgresql imagemagick
+createuser -sPE postgres # Creates the postgres user we use in database.yml
+
 git clone git@github.com:desktoppr/giftoppr.git
 cd giftoppr
 bundle
