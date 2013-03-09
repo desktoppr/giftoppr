@@ -1,3 +1,5 @@
+require 'omniauth'
+
 OmniAuth.config.logger = Rails.logger
 
 dropbox_key = ENV['DROPBOX_KEY']

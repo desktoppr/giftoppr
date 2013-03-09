@@ -3,6 +3,8 @@
 # Excon::Errors::Timeout errors being raised.
 #
 # Here we increase the default to be 10 minutes.
+require 'carrierwave'
+
 Excon.defaults = Excon.defaults.merge(:write_timeout => 10.minutes.to_i)
 
 CarrierWave.configure do |config|
