@@ -18,8 +18,11 @@ DROPBOX_SECRET=""
 Then:
 
 ```bash
-git@github.com:desktoppr/giftoppr.git
+git clone git@github.com:desktoppr/giftoppr.git
+cd giftoppr
 bundle
+rake db:schema:load
+rake db:seed # Loads in gifs from ~/Dropbox/Apps/Giftoppr
 rails server
 ```
 
