@@ -2,18 +2,25 @@
 
 [![Build Status](https://travis-ci.org/desktoppr/giftoppr.png?branch=master)](https://travis-ci.org/desktoppr/giftoppr)
 
-### Environment Variables
+### Getting started
+
+You'll first need to grab a Dropbox API key from here: https://www.dropbox.com/developers.
+
+When asked (full dropbox, or single folder only) choose single folder.
+
+Set these env variables
 
 ```bash
 DROPBOX_KEY=""
 DROPBOX_SECRET=""
-AWS_ACCESS_KEY_ID=""
-AWS_SECRET_ACCESS_KEY=""
-FOG_DIRECTORY=""
-FOG_HOST=""
-FOG_PROVIDER=""
-ASSET_SYNC_GZIP_COMPRESSION=true
-SECRET_TOKEN=""
+```
+
+Then:
+
+```bash
+git@github.com:desktoppr/giftoppr.git
+bundle
+rails server
 ```
 
 ### Heroku
@@ -28,6 +35,22 @@ Increase maximum database connections to 20
 
 ```bash
 heroku config -s | awk '/^DATABASE_URL=/{print $0 "?pool=20"}' | xargs heroku config:add
+```
+
+You'll need these environment variables for asset_sync and S3
+
+### Environment Variables
+
+```bash
+DROPBOX_KEY=""
+DROPBOX_SECRET=""
+AWS_ACCESS_KEY_ID=""
+AWS_SECRET_ACCESS_KEY=""
+FOG_DIRECTORY=""
+FOG_HOST=""
+FOG_PROVIDER=""
+ASSET_SYNC_GZIP_COMPRESSION=true
+SECRET_TOKEN=""
 ```
 
 ### CORS and S3
