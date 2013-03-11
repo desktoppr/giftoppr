@@ -1,10 +1,5 @@
 module Dropbox
   class Account
-    # This class allows us to create a wallpaper from a StringIO
-    class FilelessIO < StringIO
-      attr_accessor :original_filename
-    end
-
     delegate :put_file, :file_delete, :add_copy_ref, :create_copy_ref, :to => :client
 
     def initialize(token, secret)
@@ -13,17 +8,7 @@ module Dropbox
     end
 
     def image_data_for_path(path)
-      image_string           = client.get_file(path)
-      data                   = FilelessIO.new(image_string)
-      unique_hash            = Digest::SHA1.hexdigest(image_string)
-      data.original_filename = Pathname.new(path).basename.to_s
-      dimensions             = FastImage.new(data).size
-
-      { :width => dimensions.try(:first),
-        :height => dimensions.try(:second),
-        :unique_hash => unique_hash,
-        :file => data,
-        :bytes => data.size }
+      Dropbox::Image.new(client.get_file(path), path).to_hash
     rescue DropboxError => e
       # File has probably been deleted
     end
