@@ -33,7 +33,7 @@ gem 'bugsnag'
 group :assets do
   gem 'sass-rails'
   gem 'coffee-rails'
-  gem 'compass-rails'
+  gem 'bourbon'
   gem 'jquery-rails'
   gem 'font-awesome-rails'
   gem 'uglifier'
