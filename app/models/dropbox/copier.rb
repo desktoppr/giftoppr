@@ -5,9 +5,9 @@ module Dropbox
     end
 
     def initialize(user_id, image_id)
-      @user    = User.find(user_id)
-      @image   = Image.find(image_id)
-      @account = Account.new(@user.oauth_token, @user.oauth_secret)
+      @user    = ::User.find(user_id)
+      @image   = ::Image.find(image_id)
+      @account = ::Account.new(@user.oauth_token, @user.oauth_secret)
     end
 
     def copy_to_users_dropbox
