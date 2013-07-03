@@ -26,6 +26,7 @@ gem 'unicorn'
 gem 'foreman'
 gem 'bugsnag'
 
+# Asset stuff
 group :assets do
   gem 'sass-rails'
   gem 'coffee-rails'
