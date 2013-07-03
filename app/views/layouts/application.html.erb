@@ -21,7 +21,7 @@
         <ul>
           <% if user_signed_in? %>
             <li>Hi <%= current_user.name %>!</li>
-            <li><%= link_to "Logout", auth_logout_path %></li>
+            <li><%= link_to "Logout", auth_logout_path, :method => :delete %></li>
           <% else %>
             <li><%= link_to "Signin with Dropbox", auth_path(:dropbox) %></li>
           <% end %>

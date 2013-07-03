@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 ruby '2.0.0'
 
-gem 'rails', '3.2.13.rc1'
+gem 'rails'
 gem 'pg'
 
 # Better .env management
@@ -13,7 +13,7 @@ gem 'omniauth-dropbox'
 gem 'dropbox-sdk', :require => 'dropbox_sdk'
 
 # Uploading assets to S3
-gem 'fog'
+gem 'fog', '~> 1.12'
 gem 'asset_sync'
 
 # Image processing
@@ -30,14 +30,12 @@ gem 'foreman'
 gem 'bugsnag'
 
 # Asset stuff
-group :assets do
-  gem 'sass-rails'
-  gem 'coffee-rails'
-  gem 'bourbon'
-  gem 'jquery-rails'
-  gem 'font-awesome-rails'
-  gem 'uglifier'
-end
+gem 'sass-rails'
+gem 'coffee-rails'
+gem 'bourbon'
+gem 'jquery-rails'
+gem 'font-awesome-rails'
+gem 'uglifier'
 
 group :development, :test do
   gem 'rspec-rails'
