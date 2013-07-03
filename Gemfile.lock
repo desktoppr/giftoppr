@@ -64,6 +64,7 @@ GEM
     compass-rails (1.0.3)
       compass (>= 0.12.2, < 0.14)
     diff-lcs (1.2.1)
+    dotenv (0.8.0)
     dropbox-sdk (1.5.1)
       json
     erubis (2.7.0)
@@ -210,6 +211,7 @@ DEPENDENCIES
   coffee-rails
   colorize
   compass-rails
+  dotenv
   dropbox-sdk
   fastimage
   fog

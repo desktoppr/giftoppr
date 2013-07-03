@@ -5,6 +5,9 @@ ruby '2.0.0'
 gem 'rails', '3.2.13.rc1'
 gem 'pg'
 
+# Better .env management
+gem 'dotenv'
+
 # Dropbox
 gem 'omniauth-dropbox'
 gem 'dropbox-sdk', :require => 'dropbox_sdk'
