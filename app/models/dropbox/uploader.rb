@@ -7,7 +7,7 @@ module Dropbox
     def initialize(user_id, path)
       @user      = ::User.find(user_id)
       @path      = path
-      @account   = ::Account.new(@user.oauth_token, @user.oauth_secret)
+      @account   = Dropbox::Account.new(@user.oauth_token, @user.oauth_secret)
     end
 
     def upload_to_site
