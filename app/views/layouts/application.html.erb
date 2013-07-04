@@ -6,6 +6,8 @@
   <%= stylesheet_link_tag "application", :media => "all" %>
   <%= csrf_meta_tags %>
   <%= render :partial => 'layouts/script_loader' %>
+  <a href="https://github.com/desktoppr/giftoppr"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a>
+  <%= auto_discovery_link_tag(:atom, root_url(format: "atom")) %>
 </head>
 <body>
   <div id="container">
@@ -14,13 +16,16 @@
         <a href="/" id="logo">
           <%= image_tag "logo.png", :width => 253, :height => 55 %>
         </a>
+        <div id='rss'>
+          <a href='/?format=atom'><img src='assets/05.png' /></a>
+        </div>
         <a href="https://www.desktoppr.co" id="by-desktoppr">
           <%= image_tag "by.png", :width => 158, :height => 38 %>
         </a>
         <ul>
           <% if user_signed_in? %>
             <li>Hi <%= current_user.name %>!</li>
-            <li><%= link_to "Logout", auth_logout_path %></li>
+            <li><%= link_to "Logout", auth_logout_path, :method => :delete %></li>
           <% else %>
             <li><%= link_to "Signin with Dropbox", auth_path(:dropbox) %></li>
           <% end %>

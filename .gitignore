@@ -7,3 +7,5 @@ public/gifs
 public/uploads
 .DS_Store
 chromedriver.log
+/.bundle
+/vendor/bundle
