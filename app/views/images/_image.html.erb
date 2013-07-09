@@ -9,6 +9,16 @@
           <%= link_to '<i class="icon-cloud-download"></i>'.html_safe, auth_path(:dropbox), :title => 'Signin with Dropbox' %>
         <% end %>
       </div>
+      <div class="image-copy">
+        <a id='copy-<%= count %>' data-clipboard-text='<%= image.file.url %>'>
+          <i class='icon-paper-clip'></i>
+        </a>
+      </div>
+      <script>
+        head.ready(function() {
+          new ZeroClipboard($('<%= "#copy-#{count}" %>'));
+        });
+      </script>
       <img src="<%= asset_path 'blank.png' %>" data-original="<%= image.file.url(:preview) %>" width="<%= image.file.preview.width %>" height="<%= image.file.preview.height %>" data-url="<%= image.file.url %>" class="lazy" />
     </div>
   </div>
