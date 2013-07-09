@@ -23,6 +23,7 @@
           <%= image_tag "by.png", :width => 158, :height => 38 %>
         </a>
         <ul>
+            <li><%= link_to "How does giftoppr work?", "/how-does-giftoppr-work" %></li>
           <% if user_signed_in? %>
             <li>Hi <%= current_user.name %>!</li>
             <li><%= link_to "Logout", auth_logout_path, :method => :delete %></li>
