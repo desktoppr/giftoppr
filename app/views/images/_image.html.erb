@@ -10,13 +10,13 @@
         <% end %>
       </div>
       <div class="image-copy">
-        <a id='copy-<%= count %>' data-clipboard-text='<%= image.file.url %>'>
+        <a id='copy-<%= image_counter %>' data-clipboard-text='<%= image.file.url %>'>
           <i class='icon-paper-clip'></i>
         </a>
       </div>
       <script>
         head.ready(function() {
-          new ZeroClipboard($('<%= "#copy-#{count}" %>'));
+          new ZeroClipboard($('<%= "#copy-#{image_counter}" %>'));
         });
       </script>
       <img src="<%= asset_path 'blank.png' %>" data-original="<%= image.file.url(:preview) %>" width="<%= image.file.preview.width %>" height="<%= image.file.preview.height %>" data-url="<%= image.file.url %>" class="lazy" />

@@ -4,12 +4,10 @@
     <% groups[cycle("0", "1", "2")] << image %>
   <% end %>
 
-  <% count = 0 %>
   <% groups.each do |index, images| %>
     <div id="group-<%= index %>" class="image-group">
-      <%= render images, :count => count %>
+      <%= render images %>
     </div>
   <% end %>
-  <% count = count + 1 %>
 </div>
 <%= paginate @images %>
