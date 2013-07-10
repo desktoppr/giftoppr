@@ -37,6 +37,9 @@ gem 'jquery-rails'
 gem 'font-awesome-rails'
 gem 'uglifier'
 
+# Copy and Paste
+gem 'zeroclipboard-rails'
+
 group :development, :test do
   gem 'rspec-rails'
   gem 'capybara'

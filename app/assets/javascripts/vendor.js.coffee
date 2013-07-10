@@ -5,3 +5,4 @@
 #= require underscore
 #= require progressarc
 #= require backbone
+#= require zeroclipboard
