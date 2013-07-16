@@ -27,7 +27,6 @@ gem 'kaminari'
 # Production
 gem 'unicorn'
 gem 'foreman'
-gem 'bugsnag'
 
 # Asset stuff
 gem 'sass-rails'
