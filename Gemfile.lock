@@ -152,6 +152,8 @@ GEM
       railties (>= 4.0.0.beta, < 5.0)
       sass (>= 3.1.10)
       sprockets-rails (~> 2.0.0)
+    shoulda-matchers (2.2.0)
+      activesupport (>= 3.0.0)
     sprockets (2.10.0)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -205,5 +207,6 @@ DEPENDENCIES
   rails
   rspec-rails
   sass-rails
+  shoulda-matchers
   uglifier
   unicorn
