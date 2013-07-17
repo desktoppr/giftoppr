@@ -12,7 +12,7 @@
     <ul>
         <li><%= link_to "How does giftoppr work?", "/how-does-giftoppr-work" %></li>
       <% if user_signed_in? %>
-        <li>Hi <%= link_to current_user.name, current_user %>!</li>
+        <li><%= link_to "Hi #{current_user.name}!", current_user %></li>
         <li><%= link_to "Logout", auth_logout_path, :method => :delete %></li>
       <% else %>
         <li><%= link_to "Signin with Dropbox", auth_path(:dropbox) %></li>
