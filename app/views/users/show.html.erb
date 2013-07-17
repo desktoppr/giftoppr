@@ -1,0 +1,12 @@
+<div class="user-profile">
+  <h1><%= "#{@user.name}'s profile" %></h1>
+  <%= gravatar_for(@user) %>
+  <br />
+  <%= link_to "Update my Gravatar", "http://gravatar.com", class: "btn-giftoppr", target: "_blank" %>
+  <%= link_to "Delete my account :'(", user_path(@user), method: "delete", data: { confirm: 'Are you sure?' }, class: "btn-giftoppr" %>
+  
+  <hr />
+
+  <h2>Your gifs</h2>
+  <%= render 'shared/images' %>
+</div>
