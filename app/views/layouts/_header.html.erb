@@ -1,0 +1,22 @@
+<header>
+  <div id="header-inner">
+    <a href="/" id="logo">
+      <%= image_tag "logo.png", :width => 253, :height => 55 %>
+    </a>
+    <div id='rss'>
+      <a href='/?format=atom'><%= image_tag "05.png" %></a>
+    </div>
+    <a href="https://www.desktoppr.co" id="by-desktoppr">
+      <%= image_tag "by.png", :width => 158, :height => 38 %>
+    </a>
+    <ul>
+        <li><%= link_to "How does giftoppr work?", "/how-does-giftoppr-work" %></li>
+      <% if user_signed_in? %>
+        <li>Hi <%= link_to current_user.name, current_user %>!</li>
+        <li><%= link_to "Logout", auth_logout_path, :method => :delete %></li>
+      <% else %>
+        <li><%= link_to "Signin with Dropbox", auth_path(:dropbox) %></li>
+      <% end %>
+    </ul>
+  </div>
+</header>
