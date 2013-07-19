@@ -76,6 +76,17 @@ If you're hosting the gifs on S3, you'll need to edit its CORS configuration so 
 </CORSConfiguration>
 ```
 
+### Contributers
+
+Here are the amazing people that have contributed to Giftoppr. Thank you so much :)
+
+- [Keith Pitt](https://github.com/keithpitt)
+- [Mario Visic](https://github.com/mariovisic)
+- [Jeremy](https://github.com/j10io)
+- [Jared Fraser](https://github.com/modsognir)
+- [James Dowling](https://github.com/james-dowling)
+- [Martin Jagusch](https://github.com/mjio)
+
 ### Contributing
 
 1. Fork this repository
