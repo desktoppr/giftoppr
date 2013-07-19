@@ -99,7 +99,9 @@ InfiniteScroll =
 
 jQuery ->
   jQuery(document).on 'mouseenter', '.image-preview', (event) ->
-      Image.play Image.find(event.target)
+      image = Image.find(event.target)
+      Image.play image
+      Clipboard.set image
 
   jQuery(document).on 'mouseleave', '.image-preview', (event) ->
       Image.pause Image.find(event.target)
@@ -114,3 +116,40 @@ jQuery ->
 
   $("img.lazy").lazyload(failure_limit: 15)
   $(window).trigger('scroll')
+
+Clipboard = new class
+  constructor: ->
+    @value = ''
+
+    $(document).keydown (e) =>
+      # Only do this if there's something to be put on the clipboard, and it
+      # looks like they're starting a copy shortcut
+      if !@value || !(e.ctrlKey || e.metaKey)
+        return
+
+      if $(e.target).is('input:visible, textarea:visible')
+        return
+
+      # Abort if it looks like they've selected some text (maybe they're trying
+      # to copy out a bit of the description or something)
+      if window.getSelection?()?.toString()
+        return
+
+      if document.selection?.createRange().text
+        return
+
+      _.defer =>
+        $clipboardContainer = $('#clipboard-container')
+        $clipboardContainer.empty().show()
+        $('<textarea id="clipboard"></textarea>')
+        .val(@value)
+        .appendTo($clipboardContainer)
+        .focus()
+        .select()
+
+    $(document).keyup (e) ->
+      if $(e.target).is('#clipboard')
+        $('#clipboard-container').empty().hide()
+
+  set: (image) ->
+    @value = image.data 'url'

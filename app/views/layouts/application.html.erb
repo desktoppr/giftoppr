@@ -15,6 +15,7 @@
     <%= render 'layouts/flash_messages' %>
     <%= yield %>
   </div>
+  <div id="clipboard-container"><textarea id="clipboard"></textarea></div>
   <script>
     head.js("<%= javascript_path "vendor" %>", "<%= javascript_path "application" %>");
   </script>
