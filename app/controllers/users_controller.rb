@@ -6,18 +6,6 @@ class UsersController < ApplicationController
     @images = current_resource.images.latest.page(params[:page]).per(30)
   end
 
-  def destroy
-    @user = current_resource
-    if @user.destroy
-      sign_out
-      flash[:success] = "Your account was deleted, we're sorry that you've decided to leave!"
-      redirect_to root_path
-    else
-      flash[:error] = 'Something went wrong'
-      redirect_to root_path
-    end
-  end
-
   private
 
     def redirect_unless_authorised
