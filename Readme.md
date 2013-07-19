@@ -75,3 +75,13 @@ If you're hosting the gifs on S3, you'll need to edit its CORS configuration so 
     </CORSRule>
 </CORSConfiguration>
 ```
+
+### Contributing
+
+1. Fork this repository
+2. Create your feature branch for each new feature (git checkout -b my-new-feature)
+3. Commit your changes (git commit -am 'Add some feature')
+4. Push the branch to github (git push origin my-new-feature)
+5. Create new Pull Request
+
+**Looking for ideas? There may be some unassigned [feature requests here](https://github.com/desktoppr/giftoppr/issues?labels=feature-request)**
