@@ -41,3 +41,11 @@ group :development, :test do
   gem 'capybara'
   gem 'colorize'
 end
+
+group :test do
+  gem 'shoulda-matchers'
+  gem 'factory_girl_rails'
+  gem "pry-debugger"
+  gem "pry-rails"
+  gem "awesome_print"
+end

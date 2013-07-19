@@ -9,8 +9,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    self.current_user = nil
-
+    sign_out
     redirect_to :root
   end
 

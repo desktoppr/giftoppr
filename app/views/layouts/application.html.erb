@@ -11,28 +11,8 @@
 </head>
 <body>
   <div id="container">
-    <header>
-      <div id="header-inner">
-        <a href="/" id="logo">
-          <%= image_tag "logo.png", :width => 253, :height => 55 %>
-        </a>
-        <div id='rss'>
-          <a href='/?format=atom'><img src='assets/05.png' /></a>
-        </div>
-        <a href="https://www.desktoppr.co" id="by-desktoppr">
-          <%= image_tag "by.png", :width => 158, :height => 38 %>
-        </a>
-        <ul>
-            <li><%= link_to "How does giftoppr work?", "/how-does-giftoppr-work" %></li>
-          <% if user_signed_in? %>
-            <li>Hi <%= current_user.name %>!</li>
-            <li><%= link_to "Logout", auth_logout_path, :method => :delete %></li>
-          <% else %>
-            <li><%= link_to "Signin with Dropbox", auth_path(:dropbox) %></li>
-          <% end %>
-        </ul>
-      </div>
-    </header>
+    <%= render 'layouts/header' %>
+    <%= render 'layouts/flash_messages' %>
     <%= yield %>
   </div>
   <div id="clipboard-container"><textarea id="clipboard"></textarea></div>
