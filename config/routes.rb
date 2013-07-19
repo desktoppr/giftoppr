@@ -12,7 +12,7 @@ Giftoppr::Application.routes.draw do
 
   get '/:image.gif' => 'images#show'
 
-  resources :users, only: [:show, :destroy]
+  resources :users, only: [:show]
 
   root :to => 'public#index'
   get 'how-does-giftoppr-work', to: 'public#how'
