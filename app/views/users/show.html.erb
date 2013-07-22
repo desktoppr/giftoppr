@@ -2,12 +2,7 @@
   <h1><%= "#{@user.name}'s profile" %></h1>
   <%= gravatar_for(@user) %>
   <br />
-  <%= link_to "Update my Gravatar", "http://gravatar.com", class: "btn-giftoppr", target: "_blank" %>
-  
-  <hr />
-
-  <h2>Your gifs</h2>
-  
+  <%= link_to "Update my Gravatar", "http://gravatar.com", class: "btn-giftoppr", target: "_blank" if current_user?(@user) %>
 </div>
 
 <div class="images">
